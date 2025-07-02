@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>検索結果</title>
+</head>
+<body>
+    <h1>検索結果</h1>
+    {% if results %}
+    <ul>
+    {% for product in results %}
+        <li>{{ product.name }}: {{ product.price }}円</li>
+    {% endfor %}
+    </ul>
+    {% else %}
+        <p>"{{ query }}" の結果は見つかりませんでした。</p>
+    {% endif %}
+    <p><a href="/">戻る</a></p>
+</body>
+</html>
