@@ -14,9 +14,9 @@ This is a simple Flask web application to search buyback prices for products.
    ```
 3. Open your browser at [http://localhost:5000](http://localhost:5000) to search for products.
 
-The data is stored in `data/products.json`. The repository includes sample prices
-for the iPhone 16 series. You can modify this file or run the scraper to update
-the data.
+The data is stored in `data/products.json`. The repository includes sample
+prices for the iPhone 16 series. You can modify this file to change or add
+products, or run the scraper to update the data.
 
 ## Scraping iPhone 16 Prices
 
