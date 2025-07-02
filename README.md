@@ -28,3 +28,7 @@ error message if it cannot reach the site.
 ```bash
 python scraper.py
 ```
+
+## Usage
+
+Run the Flask server and open http://localhost:5000 in your browser. Use the search form to look up items. For example, try searching for "iPhone 16 Pro" to see the sample data.
