@@ -1,34 +1,34 @@
 # Price Checker
 
-This is a simple Flask web application to search buyback prices for products.
+A small, read-only Flask application for searching a local buyback-price catalog.
+
+The included records in `data/products.json` are sample data, not current market quotes. Edit that file through a reviewed data-update process when prices change; the app does not scrape or overwrite it automatically.
 
 ## Setup
 
-1. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-2. Run the application:
-   ```bash
-   python app.py
-   ```
-3. Open your browser at [http://localhost:5000](http://localhost:5000) to search for products.
-
-The data is stored in `data/products.json`. The repository includes sample
-prices for the iPhone 16 series. You can modify this file to change or add
-products, or run the scraper to update the data.
-
-## Scraping iPhone 16 Prices
-
-Use the scraper to fetch the latest iPhone 16 series buyback prices from
-[kaitori.app](https://kaitori.app/). This overwrites `data/products.json` with
-the fetched data. The script requires internet connectivity and will print an
-error message if it cannot reach the site.
+Python 3.9 or newer is required.
 
 ```bash
-python scraper.py
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements.txt
+python app.py
 ```
 
-## Usage
+Open <http://127.0.0.1:5000/> and search by product name.
 
-Run the Flask server and open http://localhost:5000 in your browser. Use the search form to look up items. For example, try searching for "iPhone 16 Pro" to see the sample data.
+## Product data
+
+`data/products.json` must contain an array of objects with a non-empty `name` and a non-negative numeric `price` in yen:
+
+```json
+[{"name": "Example product", "price": 1000}]
+```
+
+Invalid or unreadable data is rejected rather than partially displayed.
+
+## Tests
+
+```bash
+python -m unittest discover -s tests -v
+```

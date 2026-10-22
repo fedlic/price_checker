@@ -2,12 +2,14 @@
 <html lang="ja">
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>買取価格チェック</title>
 </head>
 <body>
     <h1>買取価格チェック</h1>
     <form action="/search" method="get">
-        <input type="text" name="q" placeholder="商品名を入力" required>
+        <label for="query">商品名</label>
+        <input id="query" type="search" name="q" placeholder="商品名を入力" maxlength="{{ max_query_length }}" required autofocus>
         <button type="submit">検索</button>
     </form>
 </body>
