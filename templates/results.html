@@ -2,18 +2,23 @@
 <html lang="ja">
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>検索結果</title>
 </head>
 <body>
     <h1>検索結果</h1>
-    {% if results %}
+    {% if error %}
+        <p role="alert">{{ error }}</p>
+    {% elif results %}
     <ul>
     {% for product in results %}
         <li>{{ product.name }}: {{ product.price }}円</li>
     {% endfor %}
     </ul>
-    {% else %}
+    {% elif query %}
         <p>"{{ query }}" の結果は見つかりませんでした。</p>
+    {% else %}
+        <p>商品名を入力してください。</p>
     {% endif %}
     <p><a href="/">戻る</a></p>
 </body>
